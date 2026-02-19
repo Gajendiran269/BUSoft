@@ -1,0 +1,53 @@
+C:
+-prime number
+-palindrome
+-reverse a string
+-factorial(recursion)
+-largest of 3 number
+-duplicate in array
+-swap 2 numbers usig pointers
+-dynamic memory allocstion using malloc and alloc
+C++:
+-reverse string using STL
+-find maximum element
+-check palandrome string
+-swap using reference
+-basic class and object 
+-linkedlist insert and delete
+-stl map frequency count
+-implement LRU cache logic
+-operator overloading program
+-virtual function runtime polymorphsim example
+Java:
+-check palindrome string
+-reverse string using string builder 
+-find duplicate character in string
+-sum of digit of number
+-count words in sentence
+-implement using linkedlist
+-find 2nd largest element in array
+-hashmap frequency count
+-multithreading program thrread and runnable
+-javastream api filter,sort,map with example
+Python:
+-reverse string
+-palindrome
+-count vowels and consonants
+-find maximum in list
+-fibonacci series 
+-find duplicate in list using dictnory
+-merge two sorted list
+-binary search
+-decorators 
+sql:
+-find all emp from table
+-find max salary 
+-use where and orderby
+-count emp using count
+-find dup data using groupby
+-find 2nd highest salary
+-diff join 
+-row_number()
+-find emp without dept
+-delete duplicate but keep one record
+

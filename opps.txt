@@ -1,0 +1,18 @@
+OOPS:
+- what is encapsulation
+- why do you achive encapsulation in java
+- why private variable in java
+- get and set method
+- what is abstraction
+- diff abstraction vs encapsulation
+- why to achive abstraction in java
+- abstract class
+- what is inheritance
+- types of inheritance
+- use of inheritance
+- what is polymorphsim
+- method overloading 
+- method overriding
+- compile time with runtime polymorphsim
+- can we achive multiple inheritance in java and Python
+- why encapsulation important
