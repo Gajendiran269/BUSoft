@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Application Form</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+            font-weight: bold;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #007bff;
+            box-shadow: 0 0 5px rgba(0,123,255,0.5);
+        }
+        .error {
+            color: #dc3545;
+            font-size: 12px;
+            margin-top: 5px;
+            display: none;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .success {
+            color: #28a745;
+            text-align: center;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Job Application Form</h1>
+        <form id="applicationForm">
+            <div class="form-group">
+                <label for="fullName">Full Name *</label>
+                <input type="text" id="fullName" name="fullName" required>
+                <div class="error" id="nameError">Name must be at least 3 characters</div>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email *</label>
+                <input type="email" id="email" name="email" required>
+                <div class="error" id="emailError">Please enter a valid email</div>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone Number *</label>
+                <input type="tel" id="phone" name="phone" required>
+                <div class="error" id="phoneError">Phone must be 10 digits</div>
+            </div>
+
+            <div class="form-group">
+                <label for="position">Position Applied For *</label>
+                <select id="position" name="position" required>
+                    <option value="">Select a position</option>
+                    <option value="developer">Developer</option>
+                    <option value="designer">Designer</option>
+                    <option value="manager">Manager</option>
+                    <option value="other">Other</option>
+                </select>
+                <div class="error" id="positionError">Please select a position</div>
+            </div>
+
+            <div class="form-group">
+                <label for="experience">Years of Experience *</label>
+                <input type="number" id="experience" name="experience" min="0" required>
+                <div class="error" id="experienceError">Experience must be a valid number</div>
+            </div>
+
+            <div class="form-group">
+                <label for="message">Cover Letter</label>
+                <textarea id="message" name="message" rows="5" placeholder="Tell us about yourself..."></textarea>
+            </div>
+
+            <button type="submit">Submit Application</button>
+            <div class="success" id="successMsg">✓ Application submitted successfully!</div>
+        </form>
+    </div>
+
+    <script>
+        const form = document.getElementById('applicationForm');
+        const successMsg = document.getElementById('successMsg');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            if (validateForm()) {
+                successMsg.style.display = 'block';
+                form.reset();
+                setTimeout(() => successMsg.style.display = 'none', 3000);
+            }
+        });
+
+        function validateForm() {
+            clearErrors();
+            let isValid = true;
+
+            const fullName = document.getElementById('fullName').value.trim();
+            if (fullName.length < 3) {
+                showError('nameError');
+                isValid = false;
+            }
+
+            const email = document.getElementById('email').value.trim();
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                showError('emailError');
+                isValid = false;
+            }
+
+            const phone = document.getElementById('phone').value.trim();
+            const phoneRegex = /^\d{10}$/;
+            if (!phoneRegex.test(phone)) {
+                showError('phoneError');
+                isValid = false;
+            }
+
+            const position = document.getElementById('position').value;
+            if (!position) {
+                showError('positionError');
+                isValid = false;
+            }
+
+            const experience = document.getElementById('experience').value;
+            if (!experience || experience < 0) {
+                showError('experienceError');
+                isValid = false;
+            }
+
+            return isValid;
+        }
+
+        function showError(errorId) {
+            document.getElementById(errorId).style.display = 'block';
+        }
+
+        function clearErrors() {
+            const errors = document.querySelectorAll('.error');
+            errors.forEach(error => error.style.display = 'none');
+        }
+    </script>
+</body>
+</html>

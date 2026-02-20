@@ -16,7 +16,6 @@ class Cat(Animal):
 class Bird(Animal):
     def make_sound(self):
         return "Tweet!"
-
 animals = [Dog(), Cat(), Bird()]
 for animal in animals:
     print(animal.make_sound())
